@@ -433,7 +433,35 @@ input[type=radio], input[type=checkbox] { margin: 0; padding: 0; vertical-align:
 .form_new input.error, .form_new textarea.error, .form_new select.error { border: 1px solid #ff0000;  }
 .form_new label.error { float: none; width: auto; color: #ff0000; font-size: 11px; display: inline-block; margin-left: 80px;  }
 
+/*** new added on 08-04-2016 **/
+.form_external fieldset { border: 1px solid #ccc; padding: 20px; background: #f7f7f7; }
+.form_external legend { text-transform: uppercase; }
+.form_external p { margin: 20px 0 !important; }
+.form_external label { width: 150px; float: left; text-align: left; padding-top: 5px; margin-right: 20px; }
 
+.form_external input[type=text] { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_external input[type=text] { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_external input[type=text] { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; }
+
+.form_external textarea { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_external textarea { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_external textarea { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; }
+
+.form_external select { font-size: 12px; padding: 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_external select { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_external select { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; }
+
+.form_external input[type=text]:focus, .form_external textarea:focus { background: #fff; }
+
+.form_external button { background: #4b6592 url(../images/buttonbg3.png) repeat-x top left; color: #fff; padding: 7px 20px; cursor: pointer; }
+.form_external button { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #395380; font-size: 12px; }
+.form_external button { text-transform: uppercase; text-shadow: 1px 1px #395380; margin-left: 170px; }
+.form_external button { -moz-box-shadow: 1px 1px 2px #999; -webkit-box-shadow: 1px 1px 2px #999; box-shadow: 1px 1px 2px #999; }
+.form_external button:hover { background: #005681 url(../images/buttonbg3.png) repeat-x 0 -36px; }
+.form_external button:active { -moz-box-shadow: inset 2px 2px 2px #12274c; -webkit-box-shadow: inset 2px 2px 2px #12274c; box-shadow: inset 2px 2px 2px #12274c; }
+
+.form_external input.error, .form_external textarea.error, .form_external select.error { border: 1px solid #ff0000; }
+.form_external label.error { float: none; width: auto; color: #ff0000; font-size: 11px; display: inline-block; }
 
 
 /*** new added on 24-11-2015 **/
