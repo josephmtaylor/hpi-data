@@ -227,28 +227,28 @@ else if(isset($_GET["msg"]) && $_GET["msg"]=='erre' && $_GET["fl"]=='add')
 
 
 					
-					  	$first_name				=		$_GET['first_name'];
-						$middle_name			=		$_GET['middle_name'];
-						$last_name				=		$_GET['last_name'];
-						$fullname				=		$_GET['fullname'];
-						$notes					=		$_GET['notes'];
-						$address_1				=		$_GET['address_1'];
-						$address_2				=		$_GET['address_2'];
-						$city					=		$_GET['city'];
-						$state					=		$_GET['state'];
-						$zip					=		$_GET['zip'];
+					  	$first_name				=		$_POST['first_name'];
+						$middle_name			=		$_POST['middle_name'];
+						$last_name				=		$_POST['last_name'];
+						$fullname				=		$_POST['fullname'];
+						$notes					=		$_POST['notes'];
+						$address_1				=		$_POST['address_1'];
+						$address_2				=		$_POST['address_2'];
+						$city					=		$_POST['city'];
+						$state					=		$_POST['state'];
+						$zip					=		$_POST['zip'];
 						
-						$category_id_fk			=		$_GET['category_id_fk'];
-						$specialty_id_fk		=		$_GET['specialty_id_fk'];
-						$county_id_fk			=		$_GET['county_id_fk'];
-						$email					=		$_GET['email'];
-						$license_status	 	    = 		$_GET['license_status'];
-						$phone			 	    = 		$_GET['phone'];
-						$fax			 	    = 		$_GET['fax'];
-						$website		 	    = 		$_GET['website'];
-						$npi			 	    = 		$_GET['npi'];
-						$publication	 	    = 		$_GET['publication'];
-						$status					=		$_GET['status'];
+						$category_id_fk			=		$_POST['category_id_fk'];
+						$specialty_id_fk		=		$_POST['specialty_id_fk'];
+						$county_id_fk			=		$_POST['county_id_fk'];
+						$email					=		$_POST['email'];
+						$license_status	 	    = 		$_POST['license_status'];
+						$phone			 	    = 		$_POST['phone'];
+						$fax			 	    = 		$_POST['fax'];
+						$website		 	    = 		$_POST['website'];
+						$npi			 	    = 		$_POST['npi'];
+						$publication	 	    = 		$_POST['publication'];
+						$status					=		$_POST['status'];
 						
 						//$daRec = $DA->getDoctorAddressRecord($fieldName='doctor_id', $id);
 						
