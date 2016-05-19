@@ -107,58 +107,60 @@ if (isset($_POST["fl"]))
 			if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
 				header("Location: newdoctor.php?fl=$fl&msg=erre" . $suffix);
 			else
-				header("Location: newdoctor.php?fl=$fl&msg=erre" . $suffix);
+				$erron = true;
+				//header("Location: newdoctor.php?fl=$fl&msg=erre" . $suffix);
 			exit();
 		}
 			
 		
-		
-		 $sessionValues = array ( 'doctor_id'				=>		$id,
-								  'first_name'				=>		$first_name,
-								  'middle_name'				=>		$middle_name,
-								  'last_name'				=>		$last_name,
-								  'fullname'				=>		$fullname,
-								  'address_1'				=>		$address_1,
-								  'address_2'				=>		$address_2,
-								  'city_id'					=>		$city_id,
-								  'state_id'				=>		$state_id,
-								  'zip_id'					=>		$zip_id,
-								  'county_id_fk'			=>		$county_id_fk,
-								  'category_id_fk'			=>		$category_id_fk,
-								  'specialty_id_fk'			=>		$specialty_id_fk,
-								  'email'					=>		$email,
-								  'license_status'			=>		$license_status,
-								  'phone'					=>		$phone,
-								  'fax'						=>		$fax,
-								  'website'					=>		$website,
-								  'npi'						=>		$npi,
-								  //'publication'				=>		$publication,
-								  'notes'					=>		$notes,
-								  'status'					=>		$status,
-								  'maxfilesize'				=>		$maxfilesize,
-								  'updated_by'				=>		$loggedUser
-							);
-		
-		$updateRecord = $M->createDoctor($sessionValues);
-		
-		empty($sessionValues);
-	//exit();
-	
-		if ($updateRecord == 1)	 { 	
-			if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
-				header("Location: doctorpublication.php?fl=$fl&msg=update" . $suffix);
-			else	
-				header("Location: doctor.php?msg=update" . $suffix);
-			exit();
+		if(!isset($erron)){
+			 $sessionValues = array ( 'doctor_id'				=>		$id,
+									  'first_name'				=>		$first_name,
+									  'middle_name'				=>		$middle_name,
+									  'last_name'				=>		$last_name,
+									  'fullname'				=>		$fullname,
+									  'address_1'				=>		$address_1,
+									  'address_2'				=>		$address_2,
+									  'city_id'					=>		$city_id,
+									  'state_id'				=>		$state_id,
+									  'zip_id'					=>		$zip_id,
+									  'county_id_fk'			=>		$county_id_fk,
+									  'category_id_fk'			=>		$category_id_fk,
+									  'specialty_id_fk'			=>		$specialty_id_fk,
+									  'email'					=>		$email,
+									  'license_status'			=>		$license_status,
+									  'phone'					=>		$phone,
+									  'fax'						=>		$fax,
+									  'website'					=>		$website,
+									  'npi'						=>		$npi,
+									  //'publication'				=>		$publication,
+									  'notes'					=>		$notes,
+									  'status'					=>		$status,
+									  'maxfilesize'				=>		$maxfilesize,
+									  'updated_by'				=>		$loggedUser
+								);
 		}
-		else {
-			if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
-				header("Location: doctorpublication.php?fl=$fl&msg=erre" . $suffix);
-			else
-				header("Location: newdoctor.php?fl=$fl&msg=err" . $suffix );
-			exit();
-		}
+		if(!isset($erron)){
+			$updateRecord = $M->createDoctor($sessionValues);
+			
+			empty($sessionValues);
+		//exit();
 		
+			if ($updateRecord == 1)	 { 	
+				if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
+					header("Location: doctorpublication.php?fl=$fl&msg=update" . $suffix);
+				else	
+					header("Location: doctor.php?msg=update" . $suffix);
+				exit();
+			}
+			else {
+				if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
+					header("Location: doctorpublication.php?fl=$fl&msg=erre" . $suffix);
+				else
+					header("Location: newdoctor.php?fl=$fl&msg=err" . $suffix );
+				exit();
+			}
+		}
 		
 
 }
@@ -218,16 +220,16 @@ if (isset($_GET["id"]) && !empty($_GET["id"]))
 				
 		
 }
-else if(isset($_GET["msg"]) && $_GET["msg"]=='erre' && $_GET["fl"]=='add')
+else if(isset($erron) && $erron && $_POST["fl"]=='add')
 {
-	$id =	$_GET["id"];
-	$fl =	$_GET["fl"];
-	$ctype = $_GET['ctype'];
-	$pg = $_GET['pg'];
+	$id =	$_POST["id"];
+	$fl =	$_POST["fl"];
+	$ctype = $_POST['ctype'];
+	$pg = $_POST['pg'];
 
 
 					
-					  	$first_name				=		"test";
+					  	$first_name				=		$_POST['first_name'];
 						$middle_name			=		$_POST['middle_name'];
 						$last_name				=		$_POST['last_name'];
 						$fullname				=		$_POST['fullname'];
