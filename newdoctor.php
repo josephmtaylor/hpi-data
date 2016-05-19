@@ -107,60 +107,73 @@ if (isset($_POST["fl"]))
 			if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
 				header("Location: newdoctor.php?fl=$fl&msg=erre" . $suffix);
 			else
-				$erron = true;
-				//header("Location: newdoctor.php?fl=$fl&msg=erre" . $suffix);
+				$suffix .= "&first_name=".$_POST["first_name"];
+				$suffix .= "&middle_name=".$_POST["middle_name"];
+				$suffix .= "&last_name=".$_POST["last_name"];
+				$suffix .= "&fullname=".$_POST["fullname"];
+				$suffix .= "&address_1=".$_POST["address_1"];
+				$suffix .= "&address_2=".$_POST["address_2"];
+				$suffix .= "&city_id=".$_POST["city_id"];
+				$suffix .= "&state_id=".$_POST["state_id"];
+				$suffix .= "&zip_id=".$_POST["zip_id"];
+				$suffix .= "&category_id_fk=".$_POST["category_id_fk"];
+				$suffix .= "&specialty_id_fk=".$_POST["specialty_id_fk"];
+				$suffix .= "&phone=".$_POST["phone"];
+				$suffix .= "&fax=".$_POST["fax"];
+				$suffix .= "&email=".$_POST["email"];
+				$suffix .= "&license_status=".$_POST["license_status"];
+				$suffix .= "&website=".$_POST["website"];
+				$suffix .= "&npi=".$_POST["npi"];
+				$suffix .= "&notes=".$_POST["notes"];
+				$suffix .= "&status=".$_POST["status"];
+				header("Location: newdoctor.php?fl=$fl&msg=erre" . $suffix);
 			exit();
 		}
 			
 		
-		if(!isset($erron)){
-			 $sessionValues = array ( 'doctor_id'				=>		$id,
-									  'first_name'				=>		$first_name,
-									  'middle_name'				=>		$middle_name,
-									  'last_name'				=>		$last_name,
-									  'fullname'				=>		$fullname,
-									  'address_1'				=>		$address_1,
-									  'address_2'				=>		$address_2,
-									  'city_id'					=>		$city_id,
-									  'state_id'				=>		$state_id,
-									  'zip_id'					=>		$zip_id,
-									  'county_id_fk'			=>		$county_id_fk,
-									  'category_id_fk'			=>		$category_id_fk,
-									  'specialty_id_fk'			=>		$specialty_id_fk,
-									  'email'					=>		$email,
-									  'license_status'			=>		$license_status,
-									  'phone'					=>		$phone,
-									  'fax'						=>		$fax,
-									  'website'					=>		$website,
-									  'npi'						=>		$npi,
-									  //'publication'				=>		$publication,
-									  'notes'					=>		$notes,
-									  'status'					=>		$status,
-									  'maxfilesize'				=>		$maxfilesize,
-									  'updated_by'				=>		$loggedUser
-								);
+		 $sessionValues = array ( 'doctor_id'				=>		$id,
+								  'first_name'				=>		$first_name,
+								  'middle_name'				=>		$middle_name,
+								  'last_name'				=>		$last_name,
+								  'fullname'				=>		$fullname,
+								  'address_1'				=>		$address_1,
+								  'address_2'				=>		$address_2,
+								  'city_id'					=>		$city_id,
+								  'state_id'				=>		$state_id,
+								  'zip_id'					=>		$zip_id,
+								  'county_id_fk'			=>		$county_id_fk,
+								  'category_id_fk'			=>		$category_id_fk,
+								  'specialty_id_fk'			=>		$specialty_id_fk,
+								  'email'					=>		$email,
+								  'license_status'			=>		$license_status,
+								  'phone'					=>		$phone,
+								  'fax'						=>		$fax,
+								  'website'					=>		$website,
+								  'npi'						=>		$npi,
+								  //'publication'				=>		$publication,
+								  'notes'					=>		$notes,
+								  'status'					=>		$status,
+								  'maxfilesize'				=>		$maxfilesize,
+								  'updated_by'				=>		$loggedUser
+							);
 
-			$updateRecord = $M->createDoctor($sessionValues);
-			
-			empty($sessionValues);
-		//exit();
+		$updateRecord = $M->createDoctor($sessionValues);
 		
-			if ($updateRecord == 1)	 { 	
-				if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
-					header("Location: doctorpublication.php?fl=$fl&msg=update" . $suffix);
-				else	
-					header("Location: doctor.php?msg=update" . $suffix);
-				exit();
-			}
-			else {
-				if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
-					header("Location: doctorpublication.php?fl=$fl&msg=erre" . $suffix);
-				else
-					header("Location: newdoctor.php?fl=$fl&msg=err" . $suffix );
-				exit();
-			}
+		empty($sessionValues);
+	//exit();
+	
+		if ($updateRecord == 1)	 { 	
+			if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
+				header("Location: doctorpublication.php?fl=$fl&msg=update" . $suffix);
+			else	
+				header("Location: doctor.php?msg=update" . $suffix);
+			exit();
 		}
-		else{
+		else {
+			if (isset($_POST['pg']) and $_POST['pg'] == 'dp')
+				header("Location: doctorpublication.php?fl=$fl&msg=erre" . $suffix);
+			else
+				header("Location: newdoctor.php?fl=$fl&msg=err" . $suffix );
 			exit();
 		}
 		
@@ -222,37 +235,37 @@ if (isset($_GET["id"]) && !empty($_GET["id"]))
 				
 		
 }
-else if(isset($erron) && $erron && $_POST["fl"]=='add')
+else if(isset($_GET["msg"]) && $_GET["msg"]=='erre' && $_GET["fl"]=='add')
 {
-	$id =	$_POST["id"];
-	$fl =	$_POST["fl"];
-	$ctype = $_POST['ctype'];
-	$pg = $_POST['pg'];
+	$id =	$_GET["id"];
+	$fl =	$_GET["fl"];
+	$ctype = $_GET['ctype'];
+	$pg = $_GET['pg'];
 
 
 					
-					  	$first_name				=		$_POST['first_name'];
-						$middle_name			=		$_POST['middle_name'];
-						$last_name				=		$_POST['last_name'];
-						$fullname				=		$_POST['fullname'];
-						$notes					=		$_POST['notes'];
-						$address_1				=		$_POST['address_1'];
-						$address_2				=		$_POST['address_2'];
-						$city					=		$_POST['city'];
-						$state					=		$_POST['state'];
-						$zip					=		$_POST['zip'];
+					  	$first_name				=		$_GET['first_name'];
+						$middle_name			=		$_GET['middle_name'];
+						$last_name				=		$_GET['last_name'];
+						$fullname				=		$_GET['fullname'];
+						$notes					=		$_GET['notes'];
+						$address_1				=		$_GET['address_1'];
+						$address_2				=		$_GET['address_2'];
+						$city					=		$_GET['city'];
+						$state					=		$_GET['state'];
+						$zip					=		$_GET['zip'];
 						
-						$category_id_fk			=		$_POST['category_id_fk'];
-						$specialty_id_fk		=		$_POST['specialty_id_fk'];
-						$county_id_fk			=		$_POST['county_id_fk'];
-						$email					=		$_POST['email'];
-						$license_status	 	    = 		$_POST['license_status'];
-						$phone			 	    = 		$_POST['phone'];
-						$fax			 	    = 		$_POST['fax'];
-						$website		 	    = 		$_POST['website'];
-						$npi			 	    = 		$_POST['npi'];
-						$publication	 	    = 		$_POST['publication'];
-						$status					=		$_POST['status'];
+						$category_id_fk			=		$_GET['category_id_fk'];
+						$specialty_id_fk		=		$_GET['specialty_id_fk'];
+						$county_id_fk			=		$_GET['county_id_fk'];
+						$email					=		$_GET['email'];
+						$license_status	 	    = 		$_GET['license_status'];
+						$phone			 	    = 		$_GET['phone'];
+						$fax			 	    = 		$_GET['fax'];
+						$website		 	    = 		$_GET['website'];
+						$npi			 	    = 		$_GET['npi'];
+						$publication	 	    = 		$_GET['publication'];
+						$status					=		$_GET['status'];
 						
 						//$daRec = $DA->getDoctorAddressRecord($fieldName='doctor_id', $id);
 						
