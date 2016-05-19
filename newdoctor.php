@@ -253,7 +253,7 @@ else if(isset($_GET["msg"]) && $_GET["msg"]=='erre' && $_GET["fl"]=='add')
 						$address_1				=		$_GET['address_1'];
 						$address_2				=		$_GET['address_2'];
 						$city_id				=		$_GET['city_id'];
-						$state_i				=		$_GET['state_id'];
+						$state_id				=		$_GET['state_id'];
 						$zip_id					=		$_GET['zip_id'];
 						
 						$category_id_fk			=		$_GET['category_id_fk'];
