@@ -115,7 +115,7 @@ if (isset($_POST["fl"]))
 				$suffix .= "&address_2=".$_POST["address_2"];
 				$suffix .= "&city=".$_POST["city"];
 				$suffix .= "&state=".$_POST["state"];
-				$suffix .= "&zip=".$_POST["zip"];
+				$suffix .= "&zip=".$_POST["zip_id"];
 				$suffix .= "&county_id_fk=".$_POST["county_id_fk"];
 				$suffix .= "&category_id_fk=".$_POST["category_id_fk"];
 				$suffix .= "&specialty_id_fk=".$_POST["specialty_id_fk"];
