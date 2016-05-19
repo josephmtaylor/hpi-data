@@ -113,9 +113,9 @@ if (isset($_POST["fl"]))
 				$suffix .= "&fullname=".$_POST["fullname"];
 				$suffix .= "&address_1=".$_POST["address_1"];
 				$suffix .= "&address_2=".$_POST["address_2"];
-				$suffix .= "&city=".$_POST["city"];
-				$suffix .= "&state=".$_POST["state"];
-				$suffix .= "&zip=".$_POST["zip_id"];
+				$suffix .= "&city_id=".$_POST["city_id"];
+				$suffix .= "&state_id=".$_POST["state_id"];
+				$suffix .= "&zip_id=".$_POST["zip_id"];
 				$suffix .= "&county_id_fk=".$_POST["county_id_fk"];
 				$suffix .= "&category_id_fk=".$_POST["category_id_fk"];
 				$suffix .= "&specialty_id_fk=".$_POST["specialty_id_fk"];
@@ -252,9 +252,9 @@ else if(isset($_GET["msg"]) && $_GET["msg"]=='erre' && $_GET["fl"]=='add')
 						$notes					=		$_GET['notes'];
 						$address_1				=		$_GET['address_1'];
 						$address_2				=		$_GET['address_2'];
-						$city					=		$_GET['city'];
-						$state					=		$_GET['state'];
-						$zip					=		$_GET['zip'];
+						$city_id				=		$_GET['city_id'];
+						$state_i				=		$_GET['state_id'];
+						$zip_id					=		$_GET['zip_id'];
 						
 						$category_id_fk			=		$_GET['category_id_fk'];
 						$specialty_id_fk		=		$_GET['specialty_id_fk'];
