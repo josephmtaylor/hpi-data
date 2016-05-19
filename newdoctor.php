@@ -218,7 +218,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"]))
 				
 		
 }
-else if('test'=='test')
+else if(isset($_GET["msg"]) && $_GET["msg"]=='err' && $_GET["fl"]=='add')
 {
 	$id =	$_GET["id"];
 	$fl =	$_GET["fl"];
