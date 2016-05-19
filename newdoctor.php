@@ -227,7 +227,7 @@ else if(isset($_GET["msg"]) && $_GET["msg"]=='erre' && $_GET["fl"]=='add')
 
 
 					
-					  	$first_name				=		$_POST['first_name'];
+					  	$first_name				=		"test";
 						$middle_name			=		$_POST['middle_name'];
 						$last_name				=		$_POST['last_name'];
 						$fullname				=		$_POST['fullname'];
