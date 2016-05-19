@@ -227,33 +227,32 @@ else if(isset($_GET["msg"]) && $_GET["msg"]=='erre' && $_GET["fl"]=='add')
 
 
 					
-					  	$first_name				=		"test";
-// 						$middle_name			=		$data['middle_name'];
-// 						$last_name				=		$data['last_name'];
-// 						$fullname				=		$data['fullname'];
-// 						$notes					=		$data['notes'];
-// //						$address_1				=		$data['address_1'];
-// //						$address_2				=		$data['address_2'];
-// //						$city					=		$data['city'];
-// //						$state					=		$data['state'];
-// //						$zip					=		$data['zip'];
+					  	$first_name				=		$data['first_name'];
+						$middle_name			=		$data['middle_name'];
+						$last_name				=		$data['last_name'];
+						$fullname				=		$data['fullname'];
+						$notes					=		$data['notes'];
+						$address_1				=		$data['address_1'];
+						$address_2				=		$data['address_2'];
+						$city					=		$data['city'];
+						$state					=		$data['state'];
+						$zip					=		$data['zip'];
 						
-// 						$category_id_fk			=		$data['category_id_fk'];
-// 						$specialty_id_fk		=		$data['specialty_id_fk'];
-// 						$county_id_fk			=		$data['county_id_fk'];
-// 						$email					=		$data['email'];
-// 						$license_status	 	    = 		$data['license_status'];
-// 						$phone			 	    = 		$data['phone'];
-// 						$fax			 	    = 		$data['fax'];
-// 						$website		 	    = 		$data['website'];
-// 						$npi			 	    = 		$data['npi'];
-// 						//$publication	 	    = 		$data['publication'];
-// 						$status					=		$data['status'];
+						$category_id_fk			=		$data['category_id_fk'];
+						$specialty_id_fk		=		$data['specialty_id_fk'];
+						$county_id_fk			=		$data['county_id_fk'];
+						$email					=		$data['email'];
+						$license_status	 	    = 		$data['license_status'];
+						$phone			 	    = 		$data['phone'];
+						$fax			 	    = 		$data['fax'];
+						$website		 	    = 		$data['website'];
+						$npi			 	    = 		$data['npi'];
+						$publication	 	    = 		$data['publication'];
+						$status					=		$data['status'];
 						
-// 						$daRec = $DA->getDoctorAddressRecord($fieldName='doctor_id', $id);
+						//$daRec = $DA->getDoctorAddressRecord($fieldName='doctor_id', $id);
 						
 					
-// 				}
 }
 else {
 		  $fl = "add";
