@@ -139,8 +139,7 @@ if (isset($_POST["fl"]))
 									  'maxfilesize'				=>		$maxfilesize,
 									  'updated_by'				=>		$loggedUser
 								);
-		}
-		if(!isset($erron)){
+
 			$updateRecord = $M->createDoctor($sessionValues);
 			
 			empty($sessionValues);
@@ -160,6 +159,9 @@ if (isset($_POST["fl"]))
 					header("Location: newdoctor.php?fl=$fl&msg=err" . $suffix );
 				exit();
 			}
+		}
+		else{
+			exit();
 		}
 		
 
